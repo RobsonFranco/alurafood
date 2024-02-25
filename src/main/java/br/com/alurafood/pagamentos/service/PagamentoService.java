@@ -40,6 +40,7 @@ public PagamentoDto criarPagamento(PagamentoDto dto) {
 public PagamentoDto atualizarPagamento(Long id, PagamentoDto dto) {
 	Pagamentos pagamento = modelMapper.map(dto,  Pagamentos.class);
 	pagamento.setId(id);
+	pagamento.setStatus(Status.ALTERADO);
 	pagamentoRep.save(pagamento);
 	return modelMapper.map(pagamento, PagamentoDto.class);
 }
